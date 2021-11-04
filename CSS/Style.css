@@ -1,0 +1,310 @@
+
+        :root{
+               --blanco: #FFFFFF;
+               --oscuro: #212121;
+               --primario:#ffc107;
+               --secundario: #25c8dd8f;
+               --gris: #757575;
+               --fuente_Principal:3.8rem;;/*1rem =10px*/
+               --grisclaro: #dfe9df;
+          }
+
+
+/*                  GLOBALES            /////////////////////////////////////////////////////*/
+html{
+          box-sizing: border-box;
+          font-size: 62.5%;
+          scroll-snap-type: y mandatory;/*Scroll a nuetro sitio web */
+        }  
+        .servicios, .navegacion_principal, .formulario{
+          /*Punto donde se va a detener las snap */
+          scroll-margin-inline: center;
+          scroll-snap-stop: always;
+   }
+        *, *:before, *:after {
+          box-sizing: inherit;
+        }
+body{
+            font-size: 16px;/**/
+            font-family: 'Krub', sans-serif;
+            
+            background-image: linear-gradient(to top,var(--grisclaro) 0%,var(--blanco) 100%);
+            /*Degradado de abajo hacia arriba desde un 0% hasta el 100%
+            , tambien se puede usar to right, to bottom*/
+     }
+.sombra{
+     -webkit-box-shadow: -9px 4px 16px -1px rgba(0,0,0,0.69);
+     -moz-box-shadow: -9px 4px 16px -1px rgba(0,0,0,0.69);
+     box-shadow: -9px 4px 16px -1px rgba(0,0,0,0.69);
+     background-color: var(--blanco);
+     padding: 2rem;/*Queremo que se separe del contenido de alrededor*/
+     border-radius: 1rem;/*Redondeo de esquinas*/
+}
+
+
+
+/*                  TIPOGRAFIA         ///////////////////////////////////////////////*/
+     h1{
+          font-size: 3.8rem;
+     }
+     h2{
+          font-size: 2.8rem;
+     }
+     h3{
+          font-size: 1.8rem;
+     }
+     h1,h2,h3{
+          text-align: center;
+     }
+
+
+
+/*                    TITULOS         ////////////////////////////////////////////// */
+
+     .titulo {
+             color: var(--primario);
+             font-size: var(--fuente_Principal);
+             font-family: 'Krub', sans-serif;
+             font-weight: 700;            
+             
+       }    
+       h1.titulo span {
+            font-size: 2rem;
+       }
+       h2.titulo span{
+            font-size: 2rem;
+       }
+
+
+
+
+ /*                      UTILIDADES         ////////////////////////////////////// */
+ .w-100 {
+      width:100%;/*Toma el 100% del espacio */
+ }
+ @media (min-width: 768){
+     .w-100 {
+          width:auto;
+     }   
+ } 
+
+.nav-bg{
+     background-color: var(--secundario);   
+     }
+.flex {
+     display: flex;
+}
+.alinear_derecha{
+     justify-content: flex-end;
+}
+     
+
+
+/*                   BARRA DE NAVEGACION PRINCIPAL //////////////////////////////////// */
+.contenedor{
+     max-width:120rem;  /*Toma 1200px como maximo*/      
+     margin: 0 auto 0 auto;
+    }
+
+.navegacion_principal{
+     
+     display: flex;/*nos habilita flexbox y tenemos
+     acceso a nuevas propiedades*/
+     flex-direction: column;
+}
+/*@media... puede ser llamado con un atajo"mq"*/
+@media (min-width: 768px){/*Aplica los cambios para dispositivos con pantallas mayors a 768px*/
+     .navegacion_principal{
+          flex-direction: row;
+          justify-content: space-between;
+     }
+ } 
+.navegacion_principal a {
+     display:block;
+     text-align: center;
+     color: var(--blanco);
+     text-decoration: none;
+     font-size: 2rem;/**/
+     font-weight: bold;/*bold=700 es negrita, por default los
+      enlaces y los parrafos  tienen ese font weight*/
+     padding: 1rem;/*Ensacha el elemeto, lo hace desede
+     donde termina el elemento hacia adentro, 1 rem css lo
+     interpreta como 4 veces en todas las direcciones*/
+     }
+.navegacion_principal a:hover {
+     background-color: var(--primario);
+     color: var(--oscuro);
+}
+
+
+
+
+
+
+
+/*                       BOTON NAVEGACION ///////////////////////////////*/
+.boton{
+     background-color:var(--secundario);
+     color: var(--blanco);
+     padding: 1rem 3rem 1rem 3rem;/*aplicamos el padin en el sentido del reloj*/
+     font-size: 2rem;
+     text-decoration: none;
+     text-transform: uppercase;/*mayusculas*/
+     font-weight: bold;/*texto en negrita bold=700*/
+     border-radius: 5rem;/*redondeo de esquina de boton*/
+     width:90%;
+     text-align:  center;
+     border: none;
+}
+@media (min-width: 768px ){
+     .boton{
+          width: auto;/*reseteara los valores de width90% para + de 768px*/
+     }
+} 
+     .boton:hover {/*Diseño de mano la pasar por un Enlace o sobre un elemento*/
+          cursor: pointer;
+     }
+
+.hero{
+     background-image: url(../img/Hongo.gif);/*Tenemos que salirnos de la carpeta
+     css con "../"*/
+     background-size: 50% 100%;
+     /*background-repeat: no-repeat;/*No repetira la imagen*/
+     /*background-size: auto, auto;/*Cubrimos el espacio faltante de la imgeng
+     expandiendola o cotrayendola*/
+     height: 410px;
+     padding: 20px;
+     position: relative;
+     margin-bottom: 2rem;
+}
+.contenido-hero{
+     position: absolute;
+     background-color: rgba(0,0,1,0.5);/*Anterior forma de sombreado*/
+     background-color: rgb(0 0 0 /50%);
+     /*width:  100%;
+     height: 100%;*/
+     top: 0;
+     bottom: 0;
+     right: 0;
+     left: 0; 
+
+     display: flex;/*flex>por default se colocara de izquierda a derecha*/
+     flex-direction: column;
+     align-items: center;/*Alineas horizontalmente dado el "column"posterior*/
+     justify-content: center;/*alineas verticalmente*/
+}
+ .contenido-hero h2, .contenido-hero p
+ {
+      color: var(--blanco);
+ }
+ .ubicacion{
+      display:flex;
+      align-items: flex-end;/*alinea verticalmente*/
+ }
+
+
+
+
+ /*                 SERVICIOS           ///////////////////////////////////////////////////////////////*/
+ 
+@media (min-width: 768px){
+     .servicios{  
+          display: grid;
+          grid-template-columns: repeat(3,1fr);/*Divide en tres fracciones nuestro area main*/
+         /* grid: 200px 800px/ 300px 300px; /* 1ero Tamaño de las filas/ 2do tamaño de las columnas */
+         column-gap: 2rem ;/*Similar a un margen, en este caso aplicara separacion de la columnas*/
+         grid-template-rows: auto auto;
+     }
+     .servicios h2{
+          grid-column: 1 / 4;/*Definimos el tamano de la columan para el input*/
+     }
+} 
+.servicio{
+     display:flex;
+     flex-direction:column;
+     align-items: center;
+}
+.servicio h3
+{
+     color: var(--oscuro);
+     font-weight: bolder;/*bold*/
+}
+.servicio p{
+
+     line-height: 2;/*interlineado*/
+     text-align: center;
+
+}
+.servicio .iconos {
+
+     height:15rem;
+     width: 15rem;
+     background-color: var(--primario);
+     border-radius: 50%;
+     display:flex;/*Horizontalmente*/
+     justify-content: space-evenly;
+     align-items: center; /*Verticalmente */ 
+}
+
+
+
+/*                       CONTACTOS                ///////////////////////////////////////////////// */
+.formulario{
+     background-color: var(--gris);
+     width: min( 60rem,100% );/*Es una funcion y utilizara el valor mas pequeño*/
+     /*min tomara y asignara el ancho al formulario entre el numero mas pequeño entre el 60rem y el 100% 
+     que segun nuestro pagina web el 100% son por ejemplo 1160px*/
+     margin: 0 auto;/*Utilizalo siempre que se tenga un elemento en este caso que es un formulario y cuyo padre 
+     no tenga un DisplayL: flex;*/
+     padding: 2rem;
+     border-radius: 1rem;
+
+}
+.formulario fieldset{
+     border: none;
+}
+     .formulario legend{
+          color: var(--primario);
+          text-align: center;
+          font-size: 1.8rem;
+          transform: uppercase;
+          font-weight:700;/*negrita*/
+     }
+     @media (min-width: 768px){
+.contenedor_campos{
+               display:grid;
+               grid-template-columns: 50% 50%;/* dividimos en dos columnas nuestra area*/
+               column-gap: 1rem;/*separacion de columnas */
+               grid-template-rows: auto auto 20rem;
+
+          }
+     } 
+.campo:nth-child(3)/*si hay 4 "campos" elige segun el numero los campos en el codigo*/
+{
+          grid-column: 1 / 3;/*Definimos el tamano de la columan para el input*/
+          /*Comenzara de la 1 a la 3ra fila segun la etiquea de bloques */
+     }
+.campo{
+     margin-bottom: 1rem;/*separacion entre inputs*/
+}
+.campo label{
+     color: var(--blanco);
+     font-weight: bold;
+     margin-bottom: .5rem;
+     display: block;/*Va a tomar todo el espacio disponible con el display: block;*/
+
+}
+/*Nota no dejar espacios entre corchetes y parentesis, da error de codigo*/
+.input-text{
+     width:100%; /*Toma el 100% del espacio del input */
+     border: none;
+     padding: 1.5rem;/*haciendo nuestros input mas grandes*/
+     border-radius: .5rem;
+}
+.campo textarea{
+          height: 20rem;     
+}
+/*    FOOTER //////////// */
+.footer{
+text-align: center;
+}
